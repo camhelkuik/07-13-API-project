@@ -11,7 +11,7 @@ class Assignment
   def initialize(options ={})
     @id = options["id"]
     @name = options["name"]
-    @desription = options["description"]
+    @description = options["description"]
     @github = options["github"]
      
   end  

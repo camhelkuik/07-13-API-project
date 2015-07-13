@@ -12,7 +12,7 @@ get "/update_assignment_form/:x" do
 end
 
 get "/change_assignment/:x" do
-  @entry = Assignement.find(params["x"].to_i)
+  @entry = Assignment.find(params["x"].to_i)
   @entry.name = params["name"] 
   @entry.description = params["description"]
   @entry.github = params["github"]  
@@ -38,7 +38,7 @@ return "Success!"
 end
 
 get "/update_partner" do
-  erb :"update/update_link_list"
+  erb :"update/update_partner_list"
 end
 
 get "/update_partner_form/:x" do

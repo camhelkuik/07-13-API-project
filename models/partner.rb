@@ -10,7 +10,7 @@ class Partner
   
   def initialize(options ={})
     @id = options["id"]
-    @assignment_id = options["assignmtn_id"]
+    @assignment_id = options["assignment_id"]
     @partner = options["partner"]
      
   end  
@@ -19,7 +19,7 @@ class Partner
   #
   # Returns self, an object.
   def save
-    CONNECTION.execute("UPDATE partner SET assignment_id = '#{self.assignment_id}', partner = '#{self.partner}' WHERE id = #{self.id};")
+    CONNECTION.execute("UPDATE partners SET assignment_id = '#{self.assignment_id}', partner = '#{self.partner}' WHERE id = #{self.id};")
      
      return self
   end

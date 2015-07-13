@@ -29,6 +29,6 @@ get "/add_partner" do
 end
 
 get "/save_partner" do
-  @new_entry = Partner.add({"assignement_id" => params["assignment_id"], "partner" => params["partner"]})
+  @new_entry = Partner.add({"assignment_id" => params["assignment_id"], "partner" => params["partner"]})
   return "Success!"
 end
