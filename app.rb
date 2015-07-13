@@ -8,8 +8,9 @@ require "sqlite3"
 require_relative "database-setup.rb"
 
 #Models
-require_relative "models/application.rb"
-
+require_relative "models/assignment.rb"
+require_relative "models/link.rb"
+require_relative "models/partner.rb"
 
 #Controllers
-require_relative "controllers/main.rb"
+require_relative "controllers/add.rb"
