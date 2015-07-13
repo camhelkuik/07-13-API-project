@@ -2,7 +2,7 @@ require "pry"
 require "sinatra"
 require "sinatra/reloader"
 require "sinatra/json"
-set :bind, 192.168.1.102
+set :bind, 0.0.0.0
 require 'active_support/core_ext/object/blank'
 
 #SQL/databse
