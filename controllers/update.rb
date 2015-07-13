@@ -1,5 +1,5 @@
 get "/update_menu" do
-  erb :"update_menu"
+  erb :"main/update_menu"
 end
 
 get "/update_assignment" do

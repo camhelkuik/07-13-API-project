@@ -1,0 +1,20 @@
+<h2 class= centered>Click the link you would like to delete:</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th> Assignment ID</th>
+    <th>Article and/or Video</th>
+  </tr>
+  <% Link.all.each do |link| %>
+  <tr>
+    <td>
+      <a href="/delete_link/<%= link.id %>">
+        <%= link.id %>
+      </a>
+    </td>
+    <td><%= link.assignment_id %></td>
+    <td><%= link.article_or_video %></td>
+  </tr>
+  <% end %>
+</table>
