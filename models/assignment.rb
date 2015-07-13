@@ -16,6 +16,24 @@ class Assignment
      
   end  
   
+  # Get all of the rows for a table.
+  #
+  # Returns an Array containing Hashes for each row.
+  def self.all_as_hash     
+   CONNECTION.execute("SELECT * FROM #{self.table_name}")
+     
+  end
+  
+  # Get a single row.
+  #
+  # record_id - The record's Integer ID.
+  #
+  # Returns an Array containing the Hash of the row.
+  def self.find_as_hash(record_id)    
+    CONNECTION.execute("SELECT * FROM #{self.table_name} WHERE id = #{record_id}").first
+  
+ end
+  
   # Allows information that was changed in ruby to be saved to SQL.
   #
   # Returns self, an object.
