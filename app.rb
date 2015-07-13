@@ -15,3 +15,4 @@ require_relative "models/partner.rb"
 #Controllers
 require_relative "controllers/add.rb"
 require_relative "controllers/view.rb"
+require_relative "controllers/update.rb"

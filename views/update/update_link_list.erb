@@ -1,0 +1,20 @@
+<h2 class= centered>Click the article and/or video you wish to update:</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Assignment ID</th>
+    <th>Link</th>
+  </tr>
+  <% Link.all.each do |link| %>
+  <tr>
+    <td>
+      <a href="/update_link_form/<%= link.id %>">
+        <%= link.id %>
+      </a>
+    </td>
+    <td><%= link.assignment_id %></td>
+    <td><%= link.article_or_video %></td>
+  </tr>
+  <% end %>
+</table>

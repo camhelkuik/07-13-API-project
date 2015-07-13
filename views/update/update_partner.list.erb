@@ -1,0 +1,20 @@
+<h2 class= centered>Click the partner you wish to update:</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Assignment ID</th>
+    <th>Partner</th>
+  </tr>
+  <% Partner.all.each do |partner| %>
+  <tr>
+    <td>
+      <a href="/update_partner_form/<%= partner.id %>">
+        <%= partner.id %>
+      </a>
+    </td>
+    <td><%= partner.assignment_id %></td>
+    <td><%= partner.partner %></td>
+  </tr>
+  <% end %>
+</table>

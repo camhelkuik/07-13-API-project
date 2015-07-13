@@ -1,0 +1,9 @@
+<h2 class= centered>Please enter the new assignment information:</h2>
+
+<form action="/change_assignment/<%= params["x"] %>">
+  <input type="text" placeholder="Enter name" name="name" value="<%= @entry.name %>">
+  <input type="text" placeholder="Enter description" name="description" value="<%= @entry.description %>">
+  <input type="text" placeholder="Enter github" name="github" value="<%= @entry.github %>">
+  
+  <input type="submit">
+</form>

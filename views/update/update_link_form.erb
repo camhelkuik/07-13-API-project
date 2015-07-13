@@ -1,0 +1,8 @@
+<h2 class= centered>Please enter the new article and/or video information:</h2>
+
+<form action="/change_link/<%= params["x"] %>">
+  <input type="number" placeholder="Enter assignment ID" name="assignment_id" value="<%= @entry.assignment_id %>">
+  <input type="text" placeholder="Enter article and/or video" name="article_or_video" value="<%= @entry.article_or_video %>">
+  
+  <input type="submit">
+</form>
