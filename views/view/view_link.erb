@@ -1,0 +1,16 @@
+<h2 class= centered>Here are your article and/or video links:</h2>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Assignment_id</th>
+      <th>Link</th>
+    </tr>
+    <% Link.all.each do |link| %>
+    <tr>
+      <td><%= link.id %></td>
+      <td><%= link.assignment_id %></td>
+      <td><%= link.article_or_video %></td>
+    </tr>
+    <% end %>
+  </table>

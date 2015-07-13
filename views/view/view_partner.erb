@@ -1,0 +1,16 @@
+<h2 class= centered>Here are your partners:</h2>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Assignment_id</th>
+      <th>partner</th>
+    </tr>
+    <% Partner.all.each do |partner| %>
+    <tr>
+      <td><%= partner.id %></td>
+      <td><%= partner.assignment_id %></td>
+      <td><%= partner.partner %></td>
+    </tr>
+    <% end %>
+  </table>
