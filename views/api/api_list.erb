@@ -1,0 +1,26 @@
+<h2 class= centered>Click the assignment you wish to view:</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Github</th>  
+  </tr>
+  <% Assignment.all.each do |assign| %>
+  <tr>
+    <td>
+      <a href="/api_assign_list/<%= assign.id %>">
+        <%= assign.id %>
+      </a>
+    </td>
+    <td><%= assign.name %></td>
+    <td><%= assign.description %></td>
+    <td><%= assign.github %></td>
+  </tr>
+  <% end %>
+</table>
+
+<div id = main>
+  
+</div>
