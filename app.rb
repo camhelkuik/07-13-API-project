@@ -1,8 +1,8 @@
 require "pry"
-require "sinatra"
+require "sinatra" 
+set :bind, '0.0.0.0'
 require "sinatra/reloader"
-require "sinatra/json"
-set :bind, 0.0.0.0
+require "sinatra/json" 
 require 'active_support/core_ext/object/blank'
 
 #SQL/databse

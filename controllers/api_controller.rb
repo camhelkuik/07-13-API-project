@@ -15,3 +15,12 @@ get "/api_assign_list/:id" do
   
   json [assignment, partner, link]
 end
+
+get "/api_all_links" do
+  
+end
+
+get "/api_all_partners" do
+  
+end
+
