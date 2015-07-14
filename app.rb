@@ -2,6 +2,11 @@ require "pry"
 require "sinatra" 
 require "sinatra/reloader"
 require "sinatra/json" 
+require 'sinatra/cross_origin'
+
+configure do
+  enable :cross_origin
+end
 require 'active_support/core_ext/object/blank'
 
 #SQL/databse

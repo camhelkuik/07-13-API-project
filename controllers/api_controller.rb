@@ -26,8 +26,8 @@ end
 
 #Not working and not sure why
 get "/api/partner_assign" do
-  search_partner = Partner.search_rows_hash("partner", params["id"]) 
-  assign_id = search_partner["assignment_id"].to_i 
+  search_partner = Partner.find_rows("partner", params["id"]) 
+  assign_id = search_partner["assignment_id".to_i]
   find_assign = Assignment.find_rows_hash("id", assign_id)
   
   json find_assign
@@ -42,41 +42,41 @@ get "/api/add_assign" do
   json hash
 end
 
-
-get "/api/change_link/" do
-  @entry = Link.find(params["x"].to_i)
-  @entry.assignment_id = params["assignment_id"] 
-  @entry.article_or_video = params["article_or_video"]
+#Getting errors for changing link and partner
+get "/api/change_link" do
+  @entry = Link.find_rows("assignment_id", params["id"])
+  @entry.article_or_video =  params["article_or_video"]
   @entry.save
 
   json @entry
 end
 
-get "/api_change_partner/:x" do
-  @entry = Partner.find(params["x"].to_i)
-  @entry.assignment_id = params["assignment_id"] 
+get "/api/change_partner" do
+  @entry = Partner.find_rows("assignment_id", params["id"])
   @entry.partner = params["partner"]
   @entry.save
   
   json @entry
 end
 
-get "/api_delete_assign/:x" do
-  a = Assignment.new("id" => params["x"].to_i)
+
+#Delete routes return objects not json, but do work
+get "/api/delete_assign" do
+  a = Assignment.find(params["id"].to_i) 
   a.delete
   
   json a
 end
 
-get "/api_delete_link/:x" do
-  l = Link.new("id" => params["x"].to_i)
+get "/api/delete_link" do
+  l = Link.find(params["id"].to_i)
   l.delete
   
   json l
 end
 
-get "/api_delete_partner/:x" do
-  p = Partner.new("id" => params["x"].to_i)
+get "/api/delete_partner" do
+  p = Partner.find(params["id"].to_i)
   p.delete
   
   json p
