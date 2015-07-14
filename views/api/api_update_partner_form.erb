@@ -1,0 +1,8 @@
+<h2 class= centered>Please enter the new partner information:</h2>
+
+<form action="/api_change_partner/<%= params["x"] %>">
+  <input type="number" placeholder="Enter assignment ID" name="assignment_id" value="<%= @entry.assignment_id %>">
+  <input type="text" placeholder="Enter partner" name="partner" value="<%= @entry.partner %>">
+  
+  <input type="submit">
+</form>

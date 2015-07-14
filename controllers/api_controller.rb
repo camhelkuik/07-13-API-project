@@ -41,22 +41,56 @@ get "/api_partner_assign/:x" do
 end
 
 get "/api_add_assign" do
-  
+  erb :"api/api_add_assign"
+end
+
+get "/api_save_assign" do
+  new_entry = Assignment.add({"name" => params["name"], "description" => params["description"], "github" => params["github"]})
+
+  json new_entry
 end
 
 get "/api_update_link" do
-  
+  erb :"api/api_update_link_list"
+end
+
+get "/api_update_link_form/:x" do
+  @entry = Link.find(params["x"].to_i)
+  erb :"api/api_update_link_form"
+end
+
+get "/api_change_link/:x" do
+  @entry = Link.find(params["x"].to_i)
+  @entry.assignment_id = params["assignment_id"] 
+  @entry.article_or_video = params["article_or_video"]
+  @entry.save
+
+  json @entry
 end
 
 get "/api_update_partner" do
+  erb :"api/api_update_partner_list"
+end
+
+get "/api_update_partner_form/:x" do
+  @entry = Partner.find(params["x"].to_i)
+  erb :"api/api_update_partner_form"
+end
+
+get "/api_change_partner/:x" do
+  @entry = Partner.find(params["x"].to_i)
+  @entry.assignment_id = params["assignment_id"] 
+  @entry.partner = params["partner"]
+  @entry.save
   
+  json @entry
 end
 
 get "/api_delete_assign_list" do
-  erb :"api_delete_assign_list"
+  erb :"api/api_delete_assign_list"
 end
 
-get "api_delete_assign/:x" do
+get "/api_delete_assign/:x" do
   a = Assignment.new("id" => params["x"].to_i)
   a.delete
   
@@ -64,10 +98,10 @@ get "api_delete_assign/:x" do
 end
 
 get "/api_delete_link_list" do
-  erb :"api_delete_link_list"
+  erb :"api/api_delete_link_list"
 end
 
-get "api_delete_link/:x" do
+get "/api_delete_link/:x" do
   l = Link.new("id" => params["x"].to_i)
   l.delete
   
@@ -75,10 +109,10 @@ get "api_delete_link/:x" do
 end
 
 get "/api_delete_partner_list" do
-  erb :"api_delete_partner_list"
+  erb :"api/api_delete_partner_list"
 end
 
-get "api_delete_partner/:x" do
+get "/api_delete_partner/:x" do
   p = Partner.new("id" => params["x"].to_i)
   p.delete
   
