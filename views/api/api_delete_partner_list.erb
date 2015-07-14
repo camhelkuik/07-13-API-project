@@ -1,0 +1,20 @@
+<h2 class= centered>Click the partner you would like to delete:</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th> Assignment ID</th>
+    <th>Partner</th>
+  </tr>
+  <% Partner.all.each do |partner| %>
+  <tr>
+    <td>
+      <a href="/api_delete_partner/<%= partner.id %>">
+        <%= partner.id %>
+      </a>
+    </td>
+    <td><%= partner.assignment_id %></td>
+    <td><%= partner.partner %></td>
+  </tr>
+  <% end %>
+</table>

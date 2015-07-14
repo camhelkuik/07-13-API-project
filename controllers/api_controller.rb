@@ -44,5 +44,46 @@ get "/api_add_assign" do
   
 end
 
+get "/api_update_link" do
+  
+end
+
+get "/api_update_partner" do
+  
+end
+
+get "/api_delete_assign_list" do
+  erb :"api_delete_assign_list"
+end
+
+get "api_delete_assign/:x" do
+  a = Assignment.new("id" => params["x"].to_i)
+  a.delete
+  
+  json a
+end
+
+get "/api_delete_link_list" do
+  erb :"api_delete_link_list"
+end
+
+get "api_delete_link/:x" do
+  l = Link.new("id" => params["x"].to_i)
+  l.delete
+  
+  json l
+end
+
+get "/api_delete_partner_list" do
+  erb :"api_delete_partner_list"
+end
+
+get "api_delete_partner/:x" do
+  p = Partner.new("id" => params["x"].to_i)
+  p.delete
+  
+  json p
+end
+
 
 
