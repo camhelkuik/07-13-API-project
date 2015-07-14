@@ -15,6 +15,14 @@ class Link
          
   end 
   
+  # Get all of the rows for a table.
+  #
+  # Returns an Array containing Hashes for each row.
+  def self.all_as_hash     
+   CONNECTION.execute("SELECT * FROM #{self.table_name}")
+     
+  end
+  
   # Get a single row.
   #
   # record_id - The record's Integer ID.

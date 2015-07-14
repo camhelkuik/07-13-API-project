@@ -15,6 +15,26 @@ class Partner
      
   end  
   
+  # Get all of the rows for a table.
+  #
+  # Returns an Array containing Hashes for each row.
+  def self.all_as_hash     
+   CONNECTION.execute("SELECT * FROM #{self.table_name}")
+     
+  end
+  
+  # Get multiple rows based on user inputed String.
+  #
+  # field_name - the String name of the column to look for the record's ID
+  # input - The user inputed String
+  #
+  # Returns an Array containing the Hash of the rows.
+  def self.search_rows_hash(field_name, input)    
+     CONNECTION.execute("SELECT * FROM #{self.table_name} WHERE #{field_name} = '#{input}'")
+    
+  end
+  
+  
   # Get a single row.
   #
   # record_id - The record's Integer ID.
