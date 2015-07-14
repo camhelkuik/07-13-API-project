@@ -23,6 +23,18 @@ class Link
      
   end
   
+  
+  # Get multiple rows based on Integer ID.
+  #
+  # field_name - the String name of the column to look for the record's ID
+  # record_id - The record's Integer ID.
+  #
+  # Returns an Array containing the Hash of the rows.
+  def self.find_rows_hash(field_name, record_id)    
+     CONNECTION.execute("SELECT * FROM #{self.table_name} WHERE #{field_name} = #{record_id}")
+   
+  end
+  
   # Get a single row.
   #
   # record_id - The record's Integer ID.
