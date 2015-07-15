@@ -2,6 +2,10 @@ get "/home" do
   erb :"main/home"
 end
 
+get "/api_home" do
+  erb :"main/api_home"
+end
+
 get "/add_menu" do
   erb :"main/add_menu"
 end
