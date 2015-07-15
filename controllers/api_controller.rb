@@ -5,13 +5,15 @@ get "/api/assignments" do
   json all
 end
 
+#TODO - fix so it shows partner
 #Finds an assignment by the ID and shows all of the info including partner and article and/or video
 get "/api/assignment_id" do
   assignment = Assignment.find_as_hash(params["id"])
-  partner = Partner.find_rows_hash("assignment_id", params["id"])
   link = Link.find_rows_hash("assignment_id", params["id"])
   
-  json [assignment, partner, link]
+  partner = 
+  
+  json [assignment, link]
 end
 
 #Show all of the article and/or video links
@@ -29,22 +31,17 @@ get "/api/all_partners" do
 end
 
 #Takes the ID of a partner and then finds all of the assignments that the partner has been a part of.
-
-#Not working and not sure why
-# get back all assignments partner id is a part of
 get "/api/partner_assign" do
-  search_partner = Partner.search_rows("partner", params["partner"]) 
-  assign_id = search_partner["assignment_id".to_i]
-  find_assign = Assignment.find_rows("id", assign_id)
+  search_partner = Assignment.find_rows_hash("partner_id", params["partner_id"])
   
-  json find_assign.make_hash
+  json search_partner
 end
 
 #Adds an assignment
 get "/api/add_assign" do
-  @new_entry = Assignment.add({"name" => params["name"], "description" => params["description"], "github" => params["github"]})
+  @new_entry = Assignment.add({"name" => params["name"], "description" => params["description"], "github" => params["github"], "partner_id" => params["partner_id"]})
   
-  hash = {"name" => params["name"], "description" => params["description"], "github" => params["github"]}
+  hash = {"name" => params["name"], "description" => params["description"], "github" => params["github"], "partner_id" => params["partner_id"]}
 
   json hash
 end
@@ -61,9 +58,8 @@ end
 
 #Changes a partner for an assignment
 get "/api/change_partner" do
-  @entry = Partner.find_rows("assignment_id", params["id"])
-  @entry[0].partner = params["partner"]
-  @entry[0].assignment_id = params["id"]
+  @entry = Assignment.find_rows("id", params["id"])
+  @entry[0].partner_id = params["partner_id"]
   @entry[0].save
   
   json @entry[0].make_hash

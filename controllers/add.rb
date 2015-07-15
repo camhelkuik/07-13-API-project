@@ -15,7 +15,7 @@ get "/add_assignment" do
 end
 
 get "/save_assignment" do
-  @new_entry = Assignment.add({"name" => params["name"], "description" => params["description"], "github" => params["github"]})
+  @new_entry = Assignment.add({"name" => params["name"], "description" => params["description"], "github" => params["github"], "partner_id" => params["partner_id"]})
   return "Success!"
 end
 
@@ -33,6 +33,6 @@ get "/add_partner" do
 end
 
 get "/save_partner" do
-  @new_entry = Partner.add({"assignment_id" => params["assignment_id"], "partner" => params["partner"]})
+  @new_entry = Partner.add({"partner" => params["partner"]})
   return "Success!"
 end

@@ -5,12 +5,11 @@ class Partner
   extend DatabaseClassMethods
   include DatabaseInstanceMethods
   
-  attr_accessor :assignment_id, :partner
+  attr_accessor :partner
   attr_reader :id
   
   def initialize(options ={})
     @id = options["id"]
-    @assignment_id = options["assignment_id"]
     @partner = options["partner"]
      
   end  
@@ -59,7 +58,7 @@ class Partner
   #
   # Returns self, an object.
   def save
-    CONNECTION.execute("UPDATE partners SET assignment_id = '#{self.assignment_id}', partner = '#{self.partner}' WHERE id = #{self.id};")
+    CONNECTION.execute("UPDATE partners SET partner = '#{self.partner}' WHERE id = #{self.id};")
      
      return self
   end

@@ -15,7 +15,8 @@ get "/change_assignment/:x" do
   @entry = Assignment.find(params["x"].to_i)
   @entry.name = params["name"] 
   @entry.description = params["description"]
-  @entry.github = params["github"]  
+  @entry.github = params["github"]
+  @entry.partner_id = params["partner_id"]    
   @entry.save
 return "Success!"
 end
@@ -48,7 +49,6 @@ end
 
 get "/change_partner/:x" do
   @entry = Partner.find(params["x"].to_i)
-  @entry.assignment_id = params["assignment_id"] 
   @entry.partner = params["partner"]
   @entry.save
 return "Success!"

@@ -5,7 +5,7 @@ class Assignment
   extend DatabaseClassMethods
   include DatabaseInstanceMethods
   
-  attr_accessor :name, :description, :github
+  attr_accessor :name, :description, :github, :partner_id
   attr_reader :id
   
   def initialize(options ={})
@@ -13,6 +13,7 @@ class Assignment
     @name = options["name"]
     @description = options["description"]
     @github = options["github"]
+    @partner_id = options["partner_id"]
      
   end  
   
@@ -49,7 +50,7 @@ class Assignment
   #
   # Returns self, an object.
   def save
-    CONNECTION.execute("UPDATE assignments SET name = '#{self.name}', description = '#{self.description}', github = '#{self.github}' WHERE id = #{self.id};")
+    CONNECTION.execute("UPDATE assignments SET name = '#{self.name}', description = '#{self.description}', github = '#{self.github}', partner_id = #{self.partner_id} WHERE id = #{self.id};")
      
      return self
   end
